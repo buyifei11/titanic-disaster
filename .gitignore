@@ -1,0 +1,23 @@
+# ---- Data: never commit the dataset ----
+src/data/*
+!src/data/.gitkeep
+
+# ---- OS files ----
+.DS_Store
+Thumbs.db
+
+# ---- Python ----
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# ---- R ----
+.Rhistory
+.RData
+.Rproj.user/
+
+# ---- Editors ----
+.vscode/
+.idea/
