@@ -99,7 +99,9 @@ tr <- prepare(tr_raw, fill, "train")
 va <- prepare(va_raw, fill, "validation")
 
 section("STEP 5: Fit logistic regression")
-model_formula <- Survived ~ Pclass + Sex + Age + Fare + FamilySize + IsAlone + Title + Embarked
+model_formula <- Survived ~ Pclass + Age + Fare + FamilySize + IsAlone + Title + Embarked
+cat("Note: Sex is left out because Title (Mr/Mrs/Miss/Master) already encodes it;\n")
+cat("including both makes the unregularized glm unstable (huge standard errors).\n")
 cat("Formula:", deparse(model_formula), "\n\n")
 model <- glm(model_formula, data = tr, family = binomial)
 print(round(coef(summary(model)), 3))
